@@ -1,4 +1,5 @@
 export const MOVIE_PREVIEW_SELECTED = 'MOVIE_PREVIEW_SELECTED'
+export const CLEAN_SELECTED_MOVIE = 'CLEAN_SELECTED_MOVIE'
 export const MOVIE_SELECTED_REQUESTED = 'MOVIE_SELECTED_REQUESTED'
 export const MOVIE_SELECTED_SUCCEED = 'MOVIE_SELECTED_SUCCEED'
 export const MOVIE_SELECTED_FAILED = 'MOVIE_SELECTED_FAILED'
@@ -44,3 +45,10 @@ export const selectMovie = ( movie ) => ({
   type: MOVIE_PREVIEW_SELECTED,
   payload: movie,
 })
+
+export const cleanSelectedMovie = () => {
+  console.log('cleanSelectedMovie')
+  return {
+    type: CLEAN_SELECTED_MOVIE,
+  }
+}
