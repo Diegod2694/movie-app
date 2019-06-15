@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux'
 
-import MovieDetails from './components/MovieDetails'
 import ModalMovieDetail from './components/ModalMovieDetail'
 import MoviesList from './components/MoviesList'
 import './App.css';
@@ -15,7 +14,6 @@ function App(props) {
     <div className="App">
       <h1>Movie App</h1>
       <MoviesList />
-      <MovieDetails />
       <ModalMovieDetail />
     </div>
   );
