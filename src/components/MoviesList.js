@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { selectMovie } from '../actions/selectMovie'
+import { selectMovie } from '../redux/actions/selectMovie'
 
 const MoviesList = ( { movies, selectMovie } ) => {
   const listItems = movies.map( movie => {
