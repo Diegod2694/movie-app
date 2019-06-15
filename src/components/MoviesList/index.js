@@ -1,18 +1,21 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
-import { selectMovie } from '../../redux/actions/selectMovie'
+import { selectMovie, selectMovieThunk } from '../../redux/actions/selectMovie'
 import MovieCard from './MovieCard'
 import './style.scss'
 
-const MoviesList = ( { movies, selectMovie } ) => {
+const MoviesList = ( { movies, selectMovie, selectMovieFetch } ) => {
   console.log( 'MoviesList > movies', movies )
   const listItems = movies.map( movie => {
     return (
       <MovieCard
         key={movie.id}
         data={movie}
-        onClick={selectMovie}
+        onClick={(data) => {
+          selectMovie(data)
+          selectMovieFetch(data.id)
+        }}
       />
     )
   } )
@@ -36,6 +39,7 @@ const mapStateToProps = ({movies}) => {
 
 const mapDispatchToProps = {
   selectMovie,
+  selectMovieFetch: selectMovieThunk,
 }
 
 export default connect( mapStateToProps, mapDispatchToProps )( MoviesList )

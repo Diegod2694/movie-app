@@ -6,9 +6,7 @@ import {
 
 const initialAuthState = {
   isLoading: false,
-  movies: [
-    { title: 'Spiderman', releaseDate: '26-20-1994', rating: 7.4 }
-  ],
+  movies: [],
   error: null,
 }
 

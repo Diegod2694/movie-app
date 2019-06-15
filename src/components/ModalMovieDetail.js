@@ -65,7 +65,7 @@ function ModalMovieDetail( { selectedMovie } ) {
 const mapStateToProps = ({selectedMovie}) => {
   console.log( 'ModalMovieDetail > mapsStateToProps > selectedMovie', selectedMovie )
   return {
-    selectedMovie,
+    selectedMovie: selectedMovie.selectedMoviePreview,
   }
 }
 
