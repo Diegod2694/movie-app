@@ -24,7 +24,8 @@ const MoviesList = ( { movies, selectMovie } ) => {
 
 const mapStateToProps = ({movies}) => {
   return {
-    movies,
+    movies: movies.movies,
+    isLoading: movies.isLoading,
   }
 }
 
