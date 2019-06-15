@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 const MovieDetails = ( { selectedMovie } ) => {
   if ( !selectedMovie ) {
     return (
-      <div className="MovieDetails-container" style={{ width: '70%' }}>
+      <div className="MovieDetails-container" style={{ width: '30%' }}>
         <h2>Película</h2>
         <div>
           <p>Selecciona una pelicula</p>
@@ -13,7 +13,7 @@ const MovieDetails = ( { selectedMovie } ) => {
     )
   } else {
     return (
-      <div className="MovieDetails-container" style={{ width: '70%' }}>
+      <div className="MovieDetails-container" style={{ width: '30%' }}>
         <h2>Pelicula:</h2>
         <div className="properties">
           <p>Title: {selectedMovie.title}</p>

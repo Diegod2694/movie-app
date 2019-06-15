@@ -1,23 +1,28 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { selectMovie } from '../redux/actions/selectMovie'
+
+import { selectMovie } from '../../redux/actions/selectMovie'
+import MovieCard from './MovieCard'
+import './style.scss'
 
 const MoviesList = ( { movies, selectMovie } ) => {
+  console.log( 'MoviesList > movies', movies )
   const listItems = movies.map( movie => {
     return (
-      <div key={movie.title}>
-        <span>{movie.title}</span>
-        <button onClick={() => selectMovie( movie )} >Detalles</button>
-      </div>
+      <MovieCard
+        key={movie.id}
+        data={movie}
+        onClick={selectMovie}
+      />
     )
   } )
 
   return (
     <div className='MoviesList-container'>
       <h2>Lista de Peliculas</h2>
-      <ul>
+      <div className="list-container">
         {listItems}
-      </ul>
+      </div>
     </div>
   )
 }
