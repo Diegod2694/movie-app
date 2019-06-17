@@ -23,7 +23,7 @@ const useStyles = makeStyles({
   },
 });
 
-export default function MovieCard( { data, onClick } ) {
+export default function MovieCard( { data, onClick, persistentOnClick } ) {
   const classes = useStyles();
 
   return (
@@ -41,6 +41,18 @@ export default function MovieCard( { data, onClick } ) {
       </CardContent>
       <CardActions>
         <Button onClick={() => onClick( data )} size="small">Ver detalle</Button>
+      </CardActions>
+      <CardActions>
+        <Button
+          onClick={() => persistentOnClick( data )}
+          size="small"
+        >
+          {
+            data.isFavorite
+              ? 'Borra de favoritos'
+              : 'Agregar a Favoritos'
+          }
+        </Button>
       </CardActions>
     </Card>
   );

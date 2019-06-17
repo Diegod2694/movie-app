@@ -12,6 +12,7 @@
     "react-scripts": "3.0.1",
     "redux": "^4.0.1",
     "redux-thunk": "^2.3.0",
+    "store": "^2.0.12",
     "typeface-roboto": "0.0.54"
   },
   "scripts": {

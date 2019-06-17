@@ -5,7 +5,13 @@ import { selectMovie, selectMovieThunk } from '../../redux/actions/selectMovie'
 import MovieCard from './MovieCard'
 import './style.scss'
 
-const MoviesList = ( { movies, selectMovie, selectMovieFetch } ) => {
+const MoviesList = ( {
+  movies,
+  selectMovie,
+  selectMovieFetch,
+  persistentOnClick,
+  title,
+} ) => {
   console.log( 'MoviesList > movies', movies )
   const listItems = movies.map( movie => {
     return (
@@ -16,13 +22,14 @@ const MoviesList = ( { movies, selectMovie, selectMovieFetch } ) => {
           selectMovie(data)
           selectMovieFetch(data.id)
         }}
+        persistentOnClick={persistentOnClick}
       />
     )
   } )
 
   return (
     <div className='MoviesList-container'>
-      <h2>Lista de Peliculas</h2>
+      <h2>{title}</h2>
       <div className="list-container">
         {listItems}
       </div>
@@ -30,16 +37,13 @@ const MoviesList = ( { movies, selectMovie, selectMovieFetch } ) => {
   )
 }
 
-const mapStateToProps = ({movies}) => {
-  return {
-    movies: movies.movies,
-    isLoading: movies.isLoading,
-  }
-}
-
 const mapDispatchToProps = {
   selectMovie,
   selectMovieFetch: selectMovieThunk,
 }
 
-export default connect( mapStateToProps, mapDispatchToProps )( MoviesList )
+MoviesList.defaultProps = {
+  title: '',
+}
+
+export default connect( null, mapDispatchToProps )( MoviesList )
